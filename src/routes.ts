@@ -2,9 +2,11 @@ import { FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply } f
 import { CreateCustomerController } from "./controllers/CreateCustomerController";
 import { ListCustomersController } from "./controllers/ListCustomersController";
 import { DeleteCustomerController } from "./controllers/DeleteCustomerController";
+import { DetailsCustomerController } from "./controllers/DetailsCustomerController";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
+  // Rota de teste
   fastify.get("/teste", async (request: FastifyRequest, reply: FastifyReply) => {
     return { ok: true }
   })
@@ -19,5 +21,9 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
 
   fastify.delete("/customer", async (request: FastifyRequest, reply: FastifyReply) => {
     return new DeleteCustomerController().handle(request, reply)
+  })
+
+  fastify.get("/details", async (request: FastifyRequest, reply: FastifyReply) => {
+    return new DetailsCustomerController().handle(request, reply)
   })
 }

@@ -11,6 +11,17 @@ class CreateCustomerService {
     if(!name || !email) {
       throw new Error("Preencha todos os campos!")
     }
+    
+    const checkEmail = await prismaClient.customer.findFirst({
+      where: {
+        email: email
+      }
+    })
+
+    if(checkEmail) {
+      throw new Error("Email já existe!")
+    }
+
     const customer = await prismaClient.customer.create({
       data: {
         name,
