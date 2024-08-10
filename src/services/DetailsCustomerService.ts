@@ -5,10 +5,10 @@ interface DetailsCustomerProps {
 }
 
 class DetailsCustomerService {
-  async execute(detailsCustomerProps: DetailsCustomerProps) { //támbem poderia ser - detailsCustomerProps: DetailsCustomerProps, e na linha 11:
+  async execute(detailsCustomerProps: DetailsCustomerProps) {
     const detailCustomer = await prismaClient.customer.findFirst({
       where: {
-        id: detailsCustomerProps.id // e aqui id: detailsCustomerProps.id
+        id: detailsCustomerProps.id
       }
     })
     
