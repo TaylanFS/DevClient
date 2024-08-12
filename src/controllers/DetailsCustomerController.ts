@@ -1,13 +1,13 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { DetailsCustomerService } from "../services/DetailsCustomerService";
 
-interface Params {
+interface ParamsProps {
   id: string
 }
 
 class DetailsCustomerController {
 
-  async handle(request: FastifyRequest<{ Params: Params }>, reply: FastifyReply) {
+  async handle(request: FastifyRequest<{ Params: ParamsProps }>, reply: FastifyReply) {
 
     const detailsCustomerService = new DetailsCustomerService()
 
