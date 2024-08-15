@@ -23,7 +23,7 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     return new DeleteCustomerController().handle(request, reply)
   })
 
-  fastify.get("/details", async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
+  fastify.get("/details", async (request: FastifyRequest<{ Querystring: { id: string } }>, reply: FastifyReply) => {
     return new DetailsCustomerController().handle(request, reply)
   })
 }

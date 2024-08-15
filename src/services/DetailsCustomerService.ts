@@ -6,6 +6,9 @@ interface DetailsCustomerProps {
 
 class DetailsCustomerService {
   async execute(detailsCustomerProps: DetailsCustomerProps) {
+
+    console.log('ID:', detailsCustomerProps.id)
+    
     const detailCustomer = await prismaClient.customer.findFirst({
       where: {
         id: detailsCustomerProps.id
