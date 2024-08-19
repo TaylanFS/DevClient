@@ -4,6 +4,8 @@ import { ListCustomersController } from "./controllers/ListCustomersController";
 import { DeleteCustomerController } from "./controllers/DeleteCustomerController";
 import { DetailsCustomerController } from "./controllers/DetailsCustomerController";
 import { FilterCustomersController } from "./controllers/FilterCustomerController";
+import { UpdateCustomerController } from "./controllers/UpdateCustomerController";
+import { assert } from "console";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
@@ -30,5 +32,9 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
 
   fastify.get("/filter", async (request: FastifyRequest<{ Querystring: { name: string } }>, reply: FastifyReply) => {
     return new FilterCustomersController().handle(request, reply)
+  })
+
+  fastify.put("/update", async (request: FastifyRequest, reply: FastifyReply) => {
+    return new UpdateCustomerController().handle(request, reply)
   })
 }
