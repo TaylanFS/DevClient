@@ -2,7 +2,7 @@ import { FastifyRequest, FastifyReply } from "fastify";
 import { FilterCustomerService } from "../services/FilterCustomerService";
 
 class FilterCustomersController {
-  async handle(request: FastifyRequest, reply: FastifyReply) {
+  async handle(request: FastifyRequest<{ Querystring: { name: string } }>, reply: FastifyReply) {
 
     console.log('Name:', request.query);
     
