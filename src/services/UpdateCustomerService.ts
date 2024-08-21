@@ -11,6 +11,20 @@ class UpdateCustomerService {
 
     console.log(updateCustomerProps)
 
+    if(updateCustomerProps.id === "" || updateCustomerProps.name === "" || updateCustomerProps.email === "") {
+      throw new Error("Preencha todos os campos!")
+    }
+
+    const checkEmail = await prismaClient.customer.findFirst({
+      where: {
+        email: updateCustomerProps.email
+      }
+    })
+
+    if(checkEmail) {
+      throw new Error("Email já existe!")
+    }
+
     const updateCustomer = await prismaClient.customer.update({
       where: {
         id: updateCustomerProps.id
@@ -22,6 +36,7 @@ class UpdateCustomerService {
     })
 
     return updateCustomer
+    
   }
 
 }
