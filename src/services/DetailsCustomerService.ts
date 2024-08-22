@@ -7,8 +7,6 @@ interface DetailsCustomerProps {
 class DetailsCustomerService {
   async execute(detailsCustomerProps: DetailsCustomerProps) {
 
-    console.log('ID:', detailsCustomerProps.id)
-
     if(!detailsCustomerProps.id) {
       throw new Error("Solicitação inválida!")
     }
@@ -18,8 +16,6 @@ class DetailsCustomerService {
         id: detailsCustomerProps.id
       }
     })
-
-    console.log(detailsCustomer)
     
     return detailsCustomer
   }

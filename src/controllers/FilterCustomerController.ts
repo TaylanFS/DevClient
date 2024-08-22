@@ -3,8 +3,6 @@ import { FilterCustomerService } from "../services/FilterCustomerService";
 
 class FilterCustomersController {
   async handle(request: FastifyRequest<{ Querystring: { name: string } }>, reply: FastifyReply) {
-
-    console.log('Name:', request.query);
     
     const { name } = request.query as { name: string }
 

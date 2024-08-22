@@ -5,16 +5,21 @@ interface FilterCustomerProps {
 }
 
 class FilterCustomerService {
-  async execute({ name }: FilterCustomerProps) {
+  async execute({ name }: FilterCustomerProps) {    
 
-    console.log('Name:', name)
-    
+    if(!name) {
+      throw new Error("Preencha todos os campos!")
+    }
 
     const customers = await prismaClient.customer.findMany({
       where: {
         name: name
       }
     })
+
+    if(customers.length === 0) {
+      throw new Error("Nenhum cliente encontrado!")
+    }
 
     return customers
   }

@@ -2,10 +2,7 @@ import { FastifyRequest, FastifyReply } from "fastify";
 import { UpdateCustomerService } from "../services/UpdateCustomerService";
 
 class UpdateCustomerController {
-  async handle(request: FastifyRequest, reply: FastifyReply) {
-
-    console.log(request.body);
-    
+  async handle(request: FastifyRequest, reply: FastifyReply) {    
 
     const { id, name, email } = request.body as { id: string, name: string, email: string }
 

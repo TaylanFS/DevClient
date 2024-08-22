@@ -9,8 +9,6 @@ interface UpdateCustomerProps {
 class UpdateCustomerService {
   async execute(updateCustomerProps: UpdateCustomerProps) {
 
-    console.log(updateCustomerProps)
-
     if(updateCustomerProps.id === "" || updateCustomerProps.name === "" || updateCustomerProps.email === "") {
       throw new Error("Preencha todos os campos!")
     }
